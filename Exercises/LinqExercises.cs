@@ -21,7 +21,6 @@ public sealed class LinqExercises
         return UniversityData.Students.FindAll((s) => s.City == "Warsaw")
             .Select(s => $"{s.IndexNumber} {s.FirstName} {s.LastName} {s.City}"
             );
-        throw NotImplemented(nameof(Task01_StudentsFromWarsaw));
     }
 
     /// <summary>
@@ -35,7 +34,9 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task02_StudentEmailAddresses()
     {
-        throw NotImplemented(nameof(Task02_StudentEmailAddresses));
+        return UniversityData.Students.Select(s => $"{s.Email}");
+        
+        //throw NotImplemented(nameof(Task02_StudentEmailAddresses));
     }
 
     /// <summary>
@@ -50,7 +51,10 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task03_StudentsSortedAlphabetically()
     {
-        throw NotImplemented(nameof(Task03_StudentsSortedAlphabetically));
+        return UniversityData.Students.OrderBy(s => s.LastName)
+            .ThenBy(s => s.FirstName)
+            .Select(s => $"{s.IndexNumber} {s.FirstName} {s.LastName}");
+        //throw NotImplemented(nameof(Task03_StudentsSortedAlphabetically));
     }
 
     /// <summary>
