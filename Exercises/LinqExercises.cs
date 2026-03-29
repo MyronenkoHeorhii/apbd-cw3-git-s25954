@@ -1,4 +1,6 @@
+using System.Collections;
 using LinqConsoleLab.EN.Data;
+using LinqConsoleLab.EN.Models;
 
 namespace LinqConsoleLab.EN.Exercises;
 
@@ -16,7 +18,9 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task01_StudentsFromWarsaw()
     {
-        
+        return UniversityData.Students.FindAll((s) => s.City == "Warsaw")
+            .Select(s => $"{s.IndexNumber} {s.FirstName} {s.LastName} {s.City}"
+            );
         throw NotImplemented(nameof(Task01_StudentsFromWarsaw));
     }
 
